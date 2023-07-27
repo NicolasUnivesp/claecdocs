@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Claec Docs</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+</head>
+
+
+<body>
+    <div class="col-8 m-auto pt-2 pb-2 text-center">
+        <h1>Cadastro de autores</h1>
+    </div>
+
+    <div class="col-8 m-auto pt-3 pb-2 text-center">
+        <a href="/" class="btn btn-info">voltar</a>
+    </div>
+
+    <div class="col-8 m-auto pt-4 pb-2 text-center">
+        <div id="result"></div>
+        <form name="form" id="form" action="{% if db %}/update/{{db.id}}{% else %}/create/{% endif %}" method="post">
+            {% csrf_token %}
+            <!--        {{form.as_p}}-->
+            <div class="form-group mt-4">Autor: {{form.autor}}</div>
+            <div class="form-group mt-4">Contato: {{form.contato}}</div>
+            <div class="form-group mt-4">Email: {{form.email}}</div>
+            <div class="form-group mt-4">Pais: {{form.pais}}</div>
+            <div class="form-group mt-4">Estado: {{form.estado}}</div>
+            <div class="form-group mt-4">Cidade: {{form.cidade}}</div>
+            <div class="form-group mt-4">Instituição: {{form.instituicao}}</div>
+            <div class="form-group mt-4">Curso: {{form.curso}}</div>
+            <div class="form-group mt-4">Area: {{form.area}}</div>
+            <div class="form-group mt-4">Tema: {{form.tema}}</div>
+            <div class="form-group mt-4">Titulo: {{form.titulo}}</div>
+            <div class="form-group mt-4">Trabalho: {{form.trabalho}}</div>
+            <div class="form-group mt-4">Observações: {{form.observacoes}}</div>
+            <div class="form-group mt-4">Data Inicio: {{form.data_inicio}}</div>
+            <div class="form-group mt-4 pb-3">Data Entrega: {{form.data_entrega}}</div>
+            <input type="submit" class="btn btn-success" value="Salvar">
+        </form>
+
+
+    </div>
+    {% load static %}
+    <script src="{% static 'javascript.js' %}"></script>
+</body>
+
+
+</html>
